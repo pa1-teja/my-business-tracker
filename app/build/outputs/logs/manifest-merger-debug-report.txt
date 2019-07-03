@@ -1,0 +1,182 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+MERGED from [com.google.android.material:material:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/436d0edf8a6625d465178094139088d8/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/konave1/.gradle/caches/transforms-2/files-2.1/3188b2ae768baed74e69d092bf85e04d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4d7177c5cfc1298fc513881b9f0d1e6b/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/a4b9c2f4f9673862582f3bf925d11f01/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/efe11112f24add75934d3952a3132ab1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/87f356520292945ecdecd1fbb3eecc93/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/32ffcac5454831f0d9e2f0ce2a671330/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/ab72c9423e91d24f3ae00f937e13a917/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4cf83aa9af018afc2c00dfb81c995f7e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0c09c686a38219b791221e7657b04883/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c8ab570497637ca4f44e973c63db4d39/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/083766c54df03ddef7ad8388f46ec340/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/7cf55c59b3ea38df71d812ad4e7a8db4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/212118b4f686a5b1a905377cb798e921/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/40791d5d19ba2cafdfd3c4c6c7b57ff2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/5e5cc579dfb1c0d4671d7aa1b93d0015/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/e22ef8d99349d0567aec0665f24099c4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c608937d4efda06e1615aa45578f5eac/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/f79a854df962192a473a5ef41d32de13/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0a0212ec791b32e9820d39795520c141/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/03634da7bc63117b56c63880356bec58/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/70c02196b00f6304f2823b7f20c4f895/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4a17fd9fee3ba813301261d188fda2ac/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/ecbd08ab75a8b6c17f8dbcd0764fd20e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/b7a7d8114e07355053c94a19711a3929/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c0990cfa464cfa41b2308c4f7cad71ec/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/60b248beacc5c39a7121649d765a04bb/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/b121669deb40905840948e3559b4ec5d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/cfa428621afe070d14a1d801c5b94686/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/984639233c91faf50f7642bccaf356dc/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/d1588e1168e3fc0e8139ca9b718640b8/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+	package
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:4:5-44
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+	xmlns:dist
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:3:5-61
+	android:versionCode
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:1-28:12
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:2:11-69
+dist:module
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:6:5-40
+	dist:instant
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:6:18-37
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:8:22-76
+application
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:9:5-26:19
+MERGED from [com.google.android.material:material:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/436d0edf8a6625d465178094139088d8/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/436d0edf8a6625d465178094139088d8/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4d7177c5cfc1298fc513881b9f0d1e6b/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4d7177c5cfc1298fc513881b9f0d1e6b/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/f79a854df962192a473a5ef41d32de13/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/f79a854df962192a473a5ef41d32de13/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0a0212ec791b32e9820d39795520c141/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0a0212ec791b32e9820d39795520c141/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/f79a854df962192a473a5ef41d32de13/AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:12:9-41
+	android:roundIcon
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:13:9-54
+	android:icon
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:11:9-43
+	android:allowBackup
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:10:9-35
+	android:theme
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:15:9-40
+activity#com.example.mybusinesstracker.MainActivity
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:16:9-25:20
+	android:label
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:18:13-45
+	android:theme
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:19:13-56
+	android:name
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:17:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml:23:27-74
+uses-sdk
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/436d0edf8a6625d465178094139088d8/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/436d0edf8a6625d465178094139088d8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/konave1/.gradle/caches/transforms-2/files-2.1/3188b2ae768baed74e69d092bf85e04d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/konave1/.gradle/caches/transforms-2/files-2.1/3188b2ae768baed74e69d092bf85e04d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4d7177c5cfc1298fc513881b9f0d1e6b/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4d7177c5cfc1298fc513881b9f0d1e6b/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/a4b9c2f4f9673862582f3bf925d11f01/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/a4b9c2f4f9673862582f3bf925d11f01/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/efe11112f24add75934d3952a3132ab1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/efe11112f24add75934d3952a3132ab1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/87f356520292945ecdecd1fbb3eecc93/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/87f356520292945ecdecd1fbb3eecc93/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/32ffcac5454831f0d9e2f0ce2a671330/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/32ffcac5454831f0d9e2f0ce2a671330/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/ab72c9423e91d24f3ae00f937e13a917/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/ab72c9423e91d24f3ae00f937e13a917/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4cf83aa9af018afc2c00dfb81c995f7e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4cf83aa9af018afc2c00dfb81c995f7e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0c09c686a38219b791221e7657b04883/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0c09c686a38219b791221e7657b04883/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c8ab570497637ca4f44e973c63db4d39/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c8ab570497637ca4f44e973c63db4d39/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/083766c54df03ddef7ad8388f46ec340/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/083766c54df03ddef7ad8388f46ec340/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/7cf55c59b3ea38df71d812ad4e7a8db4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/7cf55c59b3ea38df71d812ad4e7a8db4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/212118b4f686a5b1a905377cb798e921/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/212118b4f686a5b1a905377cb798e921/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/40791d5d19ba2cafdfd3c4c6c7b57ff2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/40791d5d19ba2cafdfd3c4c6c7b57ff2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/5e5cc579dfb1c0d4671d7aa1b93d0015/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/5e5cc579dfb1c0d4671d7aa1b93d0015/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/e22ef8d99349d0567aec0665f24099c4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/e22ef8d99349d0567aec0665f24099c4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c608937d4efda06e1615aa45578f5eac/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c608937d4efda06e1615aa45578f5eac/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/f79a854df962192a473a5ef41d32de13/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] /Users/konave1/.gradle/caches/transforms-2/files-2.1/f79a854df962192a473a5ef41d32de13/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0a0212ec791b32e9820d39795520c141/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/0a0212ec791b32e9820d39795520c141/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/03634da7bc63117b56c63880356bec58/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/03634da7bc63117b56c63880356bec58/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/70c02196b00f6304f2823b7f20c4f895/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/70c02196b00f6304f2823b7f20c4f895/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4a17fd9fee3ba813301261d188fda2ac/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/4a17fd9fee3ba813301261d188fda2ac/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/ecbd08ab75a8b6c17f8dbcd0764fd20e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/ecbd08ab75a8b6c17f8dbcd0764fd20e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/b7a7d8114e07355053c94a19711a3929/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/b7a7d8114e07355053c94a19711a3929/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c0990cfa464cfa41b2308c4f7cad71ec/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/c0990cfa464cfa41b2308c4f7cad71ec/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/60b248beacc5c39a7121649d765a04bb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/60b248beacc5c39a7121649d765a04bb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/b121669deb40905840948e3559b4ec5d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/b121669deb40905840948e3559b4ec5d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/cfa428621afe070d14a1d801c5b94686/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/cfa428621afe070d14a1d801c5b94686/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/984639233c91faf50f7642bccaf356dc/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/984639233c91faf50f7642bccaf356dc/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/d1588e1168e3fc0e8139ca9b718640b8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/konave1/.gradle/caches/transforms-2/files-2.1/d1588e1168e3fc0e8139ca9b718640b8/AndroidManifest.xml:20:5-44
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		ADDED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/konave1/Desktop/MyBusinessTracker/app/src/main/AndroidManifest.xml
