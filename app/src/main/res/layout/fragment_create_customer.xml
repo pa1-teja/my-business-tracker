@@ -132,12 +132,11 @@
                     android:id="@+id/linear_color_pic_bottom"
                     style="@style/cabin_linear_style">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/color_picker_img"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/color_pic"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -149,7 +148,7 @@
                         style="@style/cabin_left_text_style"
                         android:text="@string/colorpicselection" />
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/image_bg"
                         style="@style/cabin_right_text_style"
                         android:background="@drawable/textlines_bottom"

@@ -1,12 +1,24 @@
 package com.example.mybusinesstracker.customer.ui.customer;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mybusinesstracker.BaseCalsses.BaseFragment;
@@ -15,12 +27,15 @@ import com.example.mybusinesstracker.customer.CustomerFragmentInteractionListene
 import com.example.mybusinesstracker.databinding.FragmentCreateCustomerBinding;
 
 
-public class CreateCustomer extends BaseFragment implements View.OnClickListener {
+public class CreateCustomer extends BaseFragment implements View.OnClickListener, View.OnTouchListener {
     private static final String ARG_CUSTOMER = "customer";
 
     private Customer mCustomer;
 
     private CustomerFragmentInteractionListener mListener;
+    private AppCompatImageView bgImage;
+    private Bitmap bitmap;
+    private AppCompatImageView pickedColor;
 
     public CreateCustomer() {
         // Required empty public constructor
@@ -49,6 +64,14 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_customer, container, false);
         View view = binding.getRoot();
+
+        bgImage = view.findViewById(R.id.color_picker_img);
+         bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.color_pick);
+        bgImage.setImageBitmap(bitmap);
+        bgImage.setOnTouchListener(this);
+
+        pickedColor = view.findViewById(R.id.image_bg);
+
         if(null == mCustomer) {
             binding.setCustomer(new Customer());
         } else {
@@ -58,6 +81,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
             ((Button)view.findViewById(R.id.insert_customer)).setText(getString(R.string.cus_update_btn));
         }
         view.findViewById(R.id.insert_customer).setOnClickListener(this);
+        view.findViewById(R.id.image_bg).setOnTouchListener(this);
         return view;
     }
 
@@ -80,6 +104,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
         mListener = null;
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -90,5 +115,68 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
                 mListener.deleteCustomer(binding.getCustomer(), this);
                 break;
         }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+
+        if (v.getId() == R.id.color_picker_img) {
+
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+
+                /*int pixel = bitmap.getPixel((int) event.getX(), (int) event.getY());
+
+                *//*int redValue = Color.red(pixel);
+                int greenValue = Color.green(pixel);
+                int blueValue = Color.blue(pixel);*//*
+
+                int redValue = (pixel >> 16) & 0xff;
+                int greenValue = (pixel >> 8) & 0xff;
+                int blueValue = pixel & 0xff;
+
+                Toast.makeText(getContext(), "red : " + redValue + ", green : "
+                        + greenValue + ", blue :" + blueValue, Toast.LENGTH_SHORT).show();
+
+                pickedColor.setBackgroundColor(Color.rgb(redValue,greenValue,blueValue));*/
+
+                Drawable imgDrawable = ((ImageView) v).getDrawable();
+                //imgDrawable will not be null if you had set src to ImageView, in case of background drawable it will be null
+                Bitmap bitmap = ((BitmapDrawable) imgDrawable).getBitmap();
+
+                Matrix inverse = new Matrix();
+                ((ImageView) v).getImageMatrix().invert(inverse);
+                float[] touchPoint = new float[]{event.getX(), event.getY()};
+                inverse.mapPoints(touchPoint);
+                int xCoord = (int) touchPoint[0];
+                int yCoord = (int) touchPoint[1];
+
+                int touchedRGB = bitmap.getPixel(xCoord, yCoord);
+
+                //then do what you want with the pixel data, e.g
+                int redValue = Color.red(touchedRGB);
+                int greenValue = Color.green(touchedRGB);
+                int blueValue = Color.blue(touchedRGB);
+                int alphaValue = Color.alpha(touchedRGB);
+
+                int colorValue = Color.argb(alphaValue, redValue, greenValue, blueValue);
+
+                Log.i("TouchedColor", "TouchedRGB: " + touchedRGB);
+                Log.i("TouchedColor", "RedValue: " + redValue);
+                Log.i("TouchedColor", "GreenValue: " + greenValue);
+                Log.i("TouchedColor", "BlueValue: " + blueValue);
+                Log.i("TouchedColor", "AlphaValue: " + alphaValue);
+                Log.i("TouchedColor", "ColorValue ARGB: " + colorValue);
+
+                pickedColor.setBackgroundColor(Color.argb(alphaValue,redValue,greenValue,blueValue));
+
+                return false;
+
+            }
+
+
+        }
+
+        return true;
     }
 }
