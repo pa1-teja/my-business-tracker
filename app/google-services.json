@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "252938257949",
+    "firebase_url": "https://mybusinesstracker9.firebaseio.com",
+    "project_id": "mybusinesstracker9",
+    "storage_bucket": "mybusinesstracker9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252938257949:android:3fc78561d6340eee",
+        "android_client_info": {
+          "package_name": "com.example.mybusinesstracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252938257949-jvt5q6qm57pmtlahqk3sm502uo4ml5oa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mybusinesstracker",
+            "certificate_hash": "64adfce294ca0091f6d1635f3d086240b67a4d4c"
+          }
+        },
+        {
+          "client_id": "252938257949-b8hq2b8vbgnr6a6fok4clgq8nsl1ua3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxmSIKpONnYAX5H6bQfiBMrdIG_2LR04U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252938257949-b8hq2b8vbgnr6a6fok4clgq8nsl1ua3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
