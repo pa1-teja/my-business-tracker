@@ -113,6 +113,10 @@
     <string name="message">MESSAGE</string>
     <string name="call">CALL</string>
     <string name="add_customer">Add Customer</string>
+    <string name="open_nav_panel">Open</string>
+    <string name="close_nav_panel">Close</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
 
     <string-array name="entry_type">
         <item>Sale</item>
