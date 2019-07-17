@@ -1,5 +1,6 @@
 package com.example.mybusinesstracker.customer.ui.customer;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.databinding.DataBindingUtil;
@@ -56,7 +55,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
             mCustomer = (Customer) getArguments().getSerializable(ARG_CUSTOMER);
         }
     }
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,7 +65,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
         View view = binding.getRoot();
 
         bgImage = view.findViewById(R.id.color_picker_img);
-         bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.color_pick);
+         bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.color_pic);
         bgImage.setImageBitmap(bitmap);
         bgImage.setOnTouchListener(this);
 
@@ -117,6 +116,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 

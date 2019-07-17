@@ -113,4 +113,10 @@
     <string name="message">MESSAGE</string>
     <string name="call">CALL</string>
     <string name="add_customer">Add Customer</string>
+
+    <string-array name="entry_type">
+        <item>Sale</item>
+        <item>Due Receive</item>
+    </string-array>
+
 </resources>

@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.mybusinesstracker.BaseCalsses.BaseActivity;
 import com.example.mybusinesstracker.R;
 import com.example.mybusinesstracker.cloud_firestore.CustomerTable;
 import com.example.mybusinesstracker.cloud_firestore.DBInstance;
 import com.example.mybusinesstracker.customer.ui.customer.CreateCustomer;
 import com.example.mybusinesstracker.customer.ui.customer.Customer;
 import com.example.mybusinesstracker.customer.ui.customer.CustomerListView;
+import com.example.mybusinesstracker.factory.FactoryBaseActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,41 +26,17 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class CustomerActivity extends BaseActivity implements CustomerFragmentInteractionListener{
+public class CustomerActivity extends FactoryBaseActivity implements CustomerFragmentInteractionListener{
 
-    CustomerTable customerTable;
-    ArrayList<Customer> mAllCustomers = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         customerTable = new CustomerTable();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coustomer_activity);
-        if(null == mAllCustomers || mAllCustomers.size()<=0) {
-            customerTable.getCustomerList(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if(null != task.getResult()) {
-                        for (DocumentSnapshot document : task.getResult()) {
-                            Map<String, Object> data = document.getData();
-                            assert data != null;
-                            addCustomer(new Customer(data));
-                        }
-                    }
-                    CustomerListView myFragment = (CustomerListView) getSupportFragmentManager().findFragmentByTag("CustomerListView");
-                    // add your code here
-                    if (myFragment != null && myFragment.isVisible()) {
-                        myFragment.mAdapter.notifyDataSetChanged();
-                    }
-                }
-            });
-        }
+        getCustomerList();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.container, CustomerListView.newInstance(null), "CustomerListView").commitNow();
         }
-    }
-
-    private void addCustomer(Customer customer) {
-        mAllCustomers.add(customer);
     }
 
     @Override
@@ -96,7 +72,30 @@ public class CustomerActivity extends BaseActivity implements CustomerFragmentIn
             }
         });
     }
-
+    protected void getCustomerList() {
+        if(null == mAllCustomers || mAllCustomers.size()<=0) {
+            customerTable.getCustomerList(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(null != task.getResult()) {
+                        for (DocumentSnapshot document : task.getResult()) {
+                            Map<String, Object> data = document.getData();
+                            assert data != null;
+                            addCustomer(new Customer(data));
+                        }
+                    }
+                    CustomerListView myFragment = (CustomerListView) getSupportFragmentManager().findFragmentByTag("CustomerListView");
+                    // add your code here
+                    if (myFragment != null && myFragment.isVisible()) {
+                        myFragment.mAdapter.notifyDataSetChanged();
+                    }
+                }
+            });
+        }
+    }
+    protected void addCustomer(Customer customer) {
+        mAllCustomers.add(customer);
+    }
     @Override
     public ArrayList<Customer> getAllCustomers() {
         return mAllCustomers;

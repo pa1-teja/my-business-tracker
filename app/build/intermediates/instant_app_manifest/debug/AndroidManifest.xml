@@ -7,7 +7,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="19"
         android:targetSdkVersion="28" />
 
     <dist:module dist:instant="true" />
@@ -30,13 +30,13 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.mybusinesstracker.customer.CustomerActivity" >
+        </activity>
+        <activity android:name="com.example.mybusinesstracker.sales.SalesActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.example.mybusinesstracker.sales.SalesActivity" >
         </activity>
         <activity
             android:name="com.example.mybusinesstracker.MainActivity"
@@ -111,10 +111,6 @@
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
             android:authorities="com.example.mybusinesstracker.lifecycle-process"
             android:exported="false"
-            android:multiprocess="true" />
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.example.mybusinesstracker.com.android.tools.ir.server.InstantRunContentProvider"
             android:multiprocess="true" />
     </application>
 
