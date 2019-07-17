@@ -162,7 +162,7 @@
                     style="@style/cabin_left_text_style"
                     android:text="@string/c_total_amount" />
 
-                <TextView
+                <EditText
                     android:id="@+id/total_amount_et"
                     style="@style/cabin_right_text_style"
                     android:background="@drawable/textlines_bottom"

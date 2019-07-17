@@ -13,6 +13,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Customer extends BaseObservable implements Serializable, Parcelable {
+    public static final String KEY_CUSTOMER_NAME = "customerName";
+    public static final String KEY_ADDRESS = "address";
+    public static final String KEY_PHONE_NUMBER = "phoneNumber";
+    public static final String KEY_EMAIL_ID = "emailID";
+    public static final String KEY_AMOUNT = "amount";
+    public static final String KEY_LABOR_CHARGE = "laborCharge";
+    public static final String KEY_COLOR_ID = "colorID";
     private String customerName = "Depot";
     private String address = "Miryalguda";
     private String phoneNumber = "9246966692";
@@ -25,14 +32,25 @@ public class Customer extends BaseObservable implements Serializable, Parcelable
 
     }
     public Customer(Map<String, Object> data) {
-        customerName = (String) data.get("customerName");
+        customerName = (String) data.get(KEY_CUSTOMER_NAME);
+        address = (String) data.get(KEY_ADDRESS);
+        phoneNumber = (String) data.get(KEY_PHONE_NUMBER);
+        emailID = (String) data.get(KEY_EMAIL_ID);
+        String temp = (String) data.get(KEY_AMOUNT);
+        if(null != temp) {
+            amount = Integer.parseInt(temp);
 
-        address = (String) data.get("address");
-        phoneNumber = (String) data.get("phoneNumber");
-        emailID = (String) data.get("emailID");
-        amount = Integer.parseInt((String) data.get("amount"));
-        laborCharge = Integer.parseInt((String)data.get("laborCharge"));
-        colorID = Long.parseLong((String)data.get("colorID"));
+        }
+        temp = (String) data.get(KEY_LABOR_CHARGE);
+        if(null != temp) {
+            laborCharge = Integer.parseInt(temp);
+
+        }
+        temp = (String) data.get(KEY_COLOR_ID);
+        if(null != temp) {
+            colorID = Integer.parseInt(temp);
+
+        }
     }
 
     protected Customer(Parcel in) {
@@ -122,13 +140,13 @@ public class Customer extends BaseObservable implements Serializable, Parcelable
     }
     public HashMap<String, String> getHashMap() {
         HashMap<String, String> data = new HashMap<>();
-        data.put("customerName",customerName);
-        data.put("address",address);
-        data.put("phoneNumber",phoneNumber);
-        data.put("emailID",emailID);
-        data.put("amount", String.valueOf(amount));
-        data.put("laborCharge", String.valueOf(laborCharge));
-        data.put("colorID", String.valueOf(colorID));
+        data.put(KEY_CUSTOMER_NAME,customerName);
+        data.put(KEY_ADDRESS,address);
+        data.put(KEY_PHONE_NUMBER,phoneNumber);
+        data.put(KEY_EMAIL_ID,emailID);
+        data.put(KEY_AMOUNT, String.valueOf(amount));
+        data.put(KEY_LABOR_CHARGE, String.valueOf(laborCharge));
+        data.put(KEY_COLOR_ID, String.valueOf(colorID));
         return data;
     }
 

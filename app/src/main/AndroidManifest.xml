@@ -18,12 +18,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,InnerclassSeparator">
         <activity android:name=".customer.CustomerActivity">
-        </activity>
-        <activity android:name=".sales.SalesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".sales.SalesActivity">
         </activity>
         <activity
             android:name=".MainActivity"

@@ -120,63 +120,52 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
+        try {
+            if (v.getId() == R.id.color_picker_img) {
 
-        if (v.getId() == R.id.color_picker_img) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Drawable imgDrawable = ((ImageView) v).getDrawable();
+                    //imgDrawable will not be null if you had set src to ImageView, in case of background drawable it will be null
+                    Bitmap bitmap = ((BitmapDrawable) imgDrawable).getBitmap();
 
-                /*int pixel = bitmap.getPixel((int) event.getX(), (int) event.getY());
+                    Matrix inverse = new Matrix();
+                    ((ImageView) v).getImageMatrix().invert(inverse);
+                    float[] touchPoint = new float[]{event.getX(), event.getY()};
+                    inverse.mapPoints(touchPoint);
+                    int xCoord = (int) touchPoint[0];
+                    int yCoord = (int) touchPoint[1];
 
-                *//*int redValue = Color.red(pixel);
-                int greenValue = Color.green(pixel);
-                int blueValue = Color.blue(pixel);*//*
+                    if(xCoord>=0 && yCoord>=0) {
+                        int touchedRGB = bitmap.getPixel(xCoord, yCoord);
+                        //then do what you want with the pixel data, e.g
+                        int redValue = Color.red(touchedRGB);
+                        int greenValue = Color.green(touchedRGB);
+                        int blueValue = Color.blue(touchedRGB);
+                        int alphaValue = Color.alpha(touchedRGB);
 
-                int redValue = (pixel >> 16) & 0xff;
-                int greenValue = (pixel >> 8) & 0xff;
-                int blueValue = pixel & 0xff;
+                        if(redValue >=0 && greenValue >=0 && blueValue >=0 && alphaValue >=0 ) {
 
-                Toast.makeText(getContext(), "red : " + redValue + ", green : "
-                        + greenValue + ", blue :" + blueValue, Toast.LENGTH_SHORT).show();
+                            int colorValue = Color.argb(alphaValue, redValue, greenValue, blueValue);
+                            Log.i("TouchedColor", "TouchedRGB: " + touchedRGB);
+                            Log.i("TouchedColor", "RedValue: " + redValue);
+                            Log.i("TouchedColor", "GreenValue: " + greenValue);
+                            Log.i("TouchedColor", "BlueValue: " + blueValue);
+                            Log.i("TouchedColor", "AlphaValue: " + alphaValue);
+                            Log.i("TouchedColor", "ColorValue ARGB: " + colorValue);
+                            pickedColor.setBackgroundColor(Color.argb(alphaValue,redValue,greenValue,blueValue));
 
-                pickedColor.setBackgroundColor(Color.rgb(redValue,greenValue,blueValue));*/
+                        }
+                    }
+                    return false;
 
-                Drawable imgDrawable = ((ImageView) v).getDrawable();
-                //imgDrawable will not be null if you had set src to ImageView, in case of background drawable it will be null
-                Bitmap bitmap = ((BitmapDrawable) imgDrawable).getBitmap();
+                }
 
-                Matrix inverse = new Matrix();
-                ((ImageView) v).getImageMatrix().invert(inverse);
-                float[] touchPoint = new float[]{event.getX(), event.getY()};
-                inverse.mapPoints(touchPoint);
-                int xCoord = (int) touchPoint[0];
-                int yCoord = (int) touchPoint[1];
-
-                int touchedRGB = bitmap.getPixel(xCoord, yCoord);
-
-                //then do what you want with the pixel data, e.g
-                int redValue = Color.red(touchedRGB);
-                int greenValue = Color.green(touchedRGB);
-                int blueValue = Color.blue(touchedRGB);
-                int alphaValue = Color.alpha(touchedRGB);
-
-                int colorValue = Color.argb(alphaValue, redValue, greenValue, blueValue);
-
-                Log.i("TouchedColor", "TouchedRGB: " + touchedRGB);
-                Log.i("TouchedColor", "RedValue: " + redValue);
-                Log.i("TouchedColor", "GreenValue: " + greenValue);
-                Log.i("TouchedColor", "BlueValue: " + blueValue);
-                Log.i("TouchedColor", "AlphaValue: " + alphaValue);
-                Log.i("TouchedColor", "ColorValue ARGB: " + colorValue);
-
-                pickedColor.setBackgroundColor(Color.argb(alphaValue,redValue,greenValue,blueValue));
-
-                return false;
 
             }
-
-
+        }catch (Exception e) {
+            Log.d("Exception: ","Exception: "+e.getMessage());
         }
-
         return true;
     }
 }
