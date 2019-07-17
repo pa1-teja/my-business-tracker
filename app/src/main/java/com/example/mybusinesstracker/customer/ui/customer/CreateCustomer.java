@@ -153,7 +153,10 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
                             Log.i("TouchedColor", "BlueValue: " + blueValue);
                             Log.i("TouchedColor", "AlphaValue: " + alphaValue);
                             Log.i("TouchedColor", "ColorValue ARGB: " + colorValue);
-                            pickedColor.setBackgroundColor(Color.argb(alphaValue,redValue,greenValue,blueValue));
+
+                            String color = "#" + Integer.toHexString(Color.argb(alphaValue,redValue,greenValue,blueValue));
+
+                            pickedColor.setBackgroundColor(Color.parseColor(color));
 
                         }
                     }
