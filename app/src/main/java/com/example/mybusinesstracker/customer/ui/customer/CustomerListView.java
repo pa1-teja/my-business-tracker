@@ -45,6 +45,7 @@ public class CustomerListView extends BaseFragment implements View.OnClickListen
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_customer_list_view, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.customer_list);

@@ -26,7 +26,7 @@ public class Customer extends BaseObservable implements Serializable, Parcelable
     private String emailID = "v@v.v";
     private int amount = 10;
     private int laborCharge = 10;
-    private long colorID = 102221212;
+    private int colorID = 102221212;
 
     public Customer() {
 
@@ -60,7 +60,7 @@ public class Customer extends BaseObservable implements Serializable, Parcelable
         emailID = in.readString();
         amount = in.readInt();
         laborCharge = in.readInt();
-        colorID = in.readLong();
+        colorID = in.readInt();
     }
 
     public static final Creator<Customer> CREATOR = new Creator<Customer>() {
@@ -130,7 +130,7 @@ public class Customer extends BaseObservable implements Serializable, Parcelable
         notifyPropertyChanged(BR.laborCharge);
     }
     @Bindable
-    public long getColorID() {
+    public int getColorID() {
         return colorID;
     }
 

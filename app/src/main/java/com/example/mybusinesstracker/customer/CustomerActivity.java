@@ -35,12 +35,13 @@ public class CustomerActivity extends FactoryBaseActivity implements CustomerFra
         setContentView(R.layout.coustomer_activity);
         getCustomerList();
         if (savedInstanceState == null) {
+            getSupportActionBar().setTitle("Customer List ");
             getSupportFragmentManager().beginTransaction().add(R.id.container, CustomerListView.newInstance(null), "CustomerListView").commitNow();
         }
     }
 
     @Override
-    public void createCustomer(final Customer customer, Fragment createCustomer) {
+    public void createCustomer(final Customer customer, final boolean isUpdateCustomer) {
         customerTable.addDataField(customer, new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -49,7 +50,9 @@ public class CustomerActivity extends FactoryBaseActivity implements CustomerFra
         }, new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                addCustomer(customer);
+                if(!isUpdateCustomer) {
+                    addCustomer(customer);
+                }
                 CustomerActivity.this.onBackPressed();
             }
         });
@@ -103,6 +106,9 @@ public class CustomerActivity extends FactoryBaseActivity implements CustomerFra
 
     @Override
     public void goToCreateCustomer() {
+
+
+        getSupportActionBar().setTitle("Create Customer");
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.container, CreateCustomer.newInstance(null), "CreateCustomer");
@@ -112,7 +118,7 @@ public class CustomerActivity extends FactoryBaseActivity implements CustomerFra
 
     @Override
     public void goToUpdateCustomer(Customer customer) {
-
+        getSupportActionBar().setTitle("Update Customer");
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.container, CreateCustomer.newInstance(customer), "UpdateCustomer");

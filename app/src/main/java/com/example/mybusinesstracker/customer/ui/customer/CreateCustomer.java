@@ -35,7 +35,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
     private AppCompatImageView bgImage;
     private Bitmap bitmap;
     private AppCompatImageView pickedColor;
-
+    boolean isUpdateCustomer =false;
     public CreateCustomer() {
         // Required empty public constructor
     }
@@ -72,12 +72,16 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
         pickedColor = view.findViewById(R.id.image_bg);
 
         if(null == mCustomer) {
-            binding.setCustomer(new Customer());
+            mCustomer = new Customer();
+            binding.setCustomer(mCustomer);
+            isUpdateCustomer =false;
         } else {
             binding.setCustomer(mCustomer);
+            isUpdateCustomer = true;
             view.findViewById(R.id.delete_customer).setVisibility(View.VISIBLE);
             view.findViewById(R.id.delete_customer).setOnClickListener(this);
             ((Button)view.findViewById(R.id.insert_customer)).setText(getString(R.string.cus_update_btn));
+            pickedColor.setBackgroundColor(mCustomer.getColorID());
         }
         view.findViewById(R.id.insert_customer).setOnClickListener(this);
         view.findViewById(R.id.image_bg).setOnTouchListener(this);
@@ -108,7 +112,7 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.insert_customer:
-                mListener.createCustomer(binding.getCustomer(), this);
+                mListener.createCustomer(binding.getCustomer(), isUpdateCustomer);
                 break;
             case R.id.delete_customer:
                 mListener.deleteCustomer(binding.getCustomer(), this);
@@ -154,10 +158,11 @@ public class CreateCustomer extends BaseFragment implements View.OnClickListener
                             Log.i("TouchedColor", "AlphaValue: " + alphaValue);
                             Log.i("TouchedColor", "ColorValue ARGB: " + colorValue);
 
-                            String color = "#" + Integer.toHexString(Color.argb(alphaValue,redValue,greenValue,blueValue));
+                            //String color = "#" + Integer.toHexString();
 
-                            pickedColor.setBackgroundColor(Color.parseColor(color));
+                            mCustomer.setColorID(Color.argb(alphaValue,redValue,greenValue,blueValue));
 
+                            pickedColor.setBackgroundColor(mCustomer.getColorID());
                         }
                     }
                     return false;
