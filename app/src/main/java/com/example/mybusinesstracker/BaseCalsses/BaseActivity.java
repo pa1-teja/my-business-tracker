@@ -23,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.mybusinesstracker.R;
 import com.example.mybusinesstracker.customer.CustomerActivity;
+import com.example.mybusinesstracker.power.PowerActivity;
 import com.example.mybusinesstracker.sales.SalesActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -79,18 +80,31 @@ public class BaseActivity extends AppCompatActivity implements OnBaseAppListener
         switch(id)
         {
             case R.id.current_bill:
-                Toast.makeText(BaseActivity.this, "My Account",Toast.LENGTH_SHORT).show();
+                if (!(BaseActivity.this instanceof PowerActivity)) {
+                    intent = new Intent(this, PowerActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(BaseActivity.this, "Power Activity",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.sales:
-                intent = new Intent(this, SalesActivity.class);
-                startActivity(intent);
-                finish();
-                Toast.makeText(BaseActivity.this, "Settings",Toast.LENGTH_SHORT).show();break;
+                if(!(BaseActivity.this instanceof SalesActivity)) {
+                    intent = new Intent(this, SalesActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                } else {
+                    Toast.makeText(BaseActivity.this, "Settings",Toast.LENGTH_SHORT).show();break;
+                }
             case R.id.customer:
-                intent = new Intent(this, CustomerActivity.class);
-                startActivity(intent);
-                finish();
-                Toast.makeText(BaseActivity.this, "My Cart",Toast.LENGTH_SHORT).show();break;
+                if(!(BaseActivity.this instanceof CustomerActivity)) {
+                    intent = new Intent(this, CustomerActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(BaseActivity.this, "My Cart",Toast.LENGTH_SHORT).show();break;
+                }
             default:
                 return true;
         }
