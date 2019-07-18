@@ -97,6 +97,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setLabourCharges(int labourCharges) {
         this.labourCharges = labourCharges;
+        setTotalAmount(getIceAmount()+getLabourCharges()+getOtherAmount());
         notifyChange();
     }
 
@@ -116,6 +117,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
+        setDueAmount(getTotalAmount()-getPaidAmount());
         notifyChange();
     }
 
