@@ -29,10 +29,10 @@ import java.util.Map;
 public class CustomerActivity extends FactoryBaseActivity implements CustomerFragmentInteractionListener{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         customerTable = new CustomerTable();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.coustomer_activity);
+        //setContentView(R.layout.coustomer_activity);
         getCustomerList();
         if (savedInstanceState == null) {
             getSupportActionBar().setTitle("Customer List ");

@@ -87,6 +87,7 @@
     <string name="nav_cabin">Cabin</string>
     <string name="nav_expenditure">Expenditure</string>
     <string name="nav_sales">Sales</string>
+    <string name="nav_customer">Customers</string>
     <string name="nav_dashboard">Dashboard</string>
     <string name="next">NEXT</string>
     <string name="create_new_cabin">CREATE NEW CABIN</string>
@@ -117,6 +118,7 @@
     <string name="close_nav_panel">Close</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="current_bill">Current Bill</string>
 
     <string-array name="entry_type">
         <item>Sale</item>

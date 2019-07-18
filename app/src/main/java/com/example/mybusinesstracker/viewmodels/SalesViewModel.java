@@ -2,6 +2,8 @@ package com.example.mybusinesstracker.viewmodels;
 
 import androidx.databinding.BaseObservable;
 
+import com.example.mybusinesstracker.customer.ui.customer.Customer;
+
 import java.io.Serializable;
 
 public class SalesViewModel extends BaseObservable implements Serializable {
@@ -10,15 +12,16 @@ public class SalesViewModel extends BaseObservable implements Serializable {
     private String cabinID = null;
     private String customerID = null;
     private String salesType = null;
-    private float totalBlocks = 4;
-    private int iceAmount = 400;
-    private int labourCharges = 100;
-    private int otherAmount = 20;
-    private int totalAmount = 520;
-    private int paidAmount = 520;
+    private float totalBlocks = 0;
+    private int iceAmount = 0;
+    private int labourCharges = 0;
+    private int otherAmount = 0;
+    private int totalAmount = 0;
+    private int paidAmount = 0;
     private int dueAmount = 0;
     private String note = null;
     private String dateString;
+    private Customer selectedCustomer;
 
     public int getID() {
         return ID;
@@ -74,6 +77,8 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setTotalBlocks(float totalBlocks) {
         this.totalBlocks = totalBlocks;
+        this.iceAmount = (int) (selectedCustomer.getAmount()*totalBlocks);
+        this.labourCharges = (int) (selectedCustomer.getLaborCharge()*totalBlocks);
     }
 
     public int getIceAmount() {
@@ -133,4 +138,11 @@ public class SalesViewModel extends BaseObservable implements Serializable {
     }
 
 
+    public Customer getSelectedCustomer() {
+        return selectedCustomer;
+    }
+
+    public void setSelectedCustomer(Customer selectedCustomer) {
+        this.selectedCustomer = selectedCustomer;
+    }
 }

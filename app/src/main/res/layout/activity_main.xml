@@ -5,10 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
@@ -19,7 +22,7 @@
             android:id="@+id/textView"
             android:layout_marginTop="200dp"
             android:layout_marginLeft="130dp"/>
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

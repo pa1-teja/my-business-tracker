@@ -25,7 +25,6 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         customerTable = new CustomerTable();
-        setContentView(R.layout.sales_activity);
         getCustomerList();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, AddSaleFragment.newInstance(), "AddSaleFragment").commitNow();

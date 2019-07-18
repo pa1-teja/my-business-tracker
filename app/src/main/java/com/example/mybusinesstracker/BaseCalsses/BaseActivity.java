@@ -1,6 +1,5 @@
 package com.example.mybusinesstracker.BaseCalsses;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,19 +10,34 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-@SuppressLint("Registered")
+import com.example.mybusinesstracker.R;
+import com.example.mybusinesstracker.customer.CustomerActivity;
+import com.example.mybusinesstracker.sales.SalesActivity;
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
+
 public class BaseActivity extends AppCompatActivity implements OnBaseAppListener {
 
+
+    protected ActionBarDrawerToggle t;
+    protected DrawerLayout dl;
 
     protected static String TAG ="BaseActivity";
     boolean isWifiConnected = false;
     boolean isMobileDataConnected = false;
-
+    NavigationView nv;
 
     /*
      * setTagName() method is usefull in finding out which activity or module has raised a particular log accross the whole application
@@ -31,6 +45,56 @@ public class BaseActivity extends AppCompatActivity implements OnBaseAppListener
     public void setTagName(String name){
         String classpath[] = name.split("\\.");
         TAG = classpath[classpath.length -1];
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setNavigationDrawer();
+    }
+
+    protected void setNavigationDrawer() {
+        dl = findViewById(R.id.activity_main);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
+        dl.addDrawerListener(t);
+        t.syncState();
+        nv = findViewById(R.id.nv);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Boolean x = goToActivity(id);
+                if (x != null) return x;
+
+                dl.closeDrawer(nv);
+                return true;
+            }
+        });
+    }
+
+    private Boolean goToActivity(int id) {
+        Intent intent;
+        switch(id)
+        {
+            case R.id.current_bill:
+                Toast.makeText(BaseActivity.this, "My Account",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.sales:
+                intent = new Intent(this, SalesActivity.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(BaseActivity.this, "Settings",Toast.LENGTH_SHORT).show();break;
+            case R.id.customer:
+                intent = new Intent(this, CustomerActivity.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(BaseActivity.this, "My Cart",Toast.LENGTH_SHORT).show();break;
+            default:
+                return true;
+        }
+        return null;
     }
 
     @Override
@@ -136,5 +200,20 @@ public class BaseActivity extends AppCompatActivity implements OnBaseAppListener
     @Override
     public void setTagName() {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(t.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }

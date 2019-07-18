@@ -45,8 +45,6 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
     private ArrayAdapter<String> spinnerCustomerAdapter;
     private ArrayAdapter<String> spinnerCabinAdapter;
     private OnSalesInteractionListener mListener;
-    private TextView mDateTextView;
-    private Customer mSelectedCustomer;
     public static AddSaleFragment newInstance() {
         return new AddSaleFragment();
     }
@@ -68,14 +66,18 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
         Spinner mSpinnerEntryType = view.findViewById(R.id.entry_type_sp);
         Spinner mSpinnerCabin = view.findViewById(R.id.cab_name_sp);
         Spinner mSpinnerCustomerName = view.findViewById(R.id.sal_cus_ed);
-        mDateTextView = view.findViewById(R.id.sal_date_ed);
+        TextView mDateTextView = view.findViewById(R.id.sal_date_ed);
         mDateTextView.setOnClickListener(this);
 
         mSpinnerCustomerName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mViewModel.setCustomerID(mSalesTypes.get(position));
-                mSelectedCustomer = mListener.getCustomers().get(mCustomerNames.get(position));
+                mViewModel.setCustomerID(mCustomerNames.get(position));
+                mViewModel.setSelectedCustomer(mListener.getCustomers().get(mViewModel.getCustomerID()));
+                if(mViewModel.getTotalBlocks()>0) {
+                    mViewModel.setIceAmount((int) (mViewModel.getTotalBlocks()*mViewModel.getSelectedCustomer().getAmount()));
+                    mViewModel.setLabourCharges((int) (mViewModel.getTotalBlocks()*mViewModel.getSelectedCustomer().getLaborCharge()));
+                }
             }
 
             @Override
@@ -86,7 +88,7 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
         mSpinnerCabin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //mViewModel.setSalesType(mSalesTypes.get(position));
+                mViewModel.setCabinID(mCabinNames.get(position));
             }
 
             @Override
@@ -175,7 +177,6 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
         System.out.println("Today : " + today);
         mViewModel.setDateString(today);
         mViewModel.setDate(calender.getTimeInMillis());
-        //mDateTextView.setText(today);
     }
 }
 
