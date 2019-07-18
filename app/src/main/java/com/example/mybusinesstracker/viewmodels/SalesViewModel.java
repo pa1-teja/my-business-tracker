@@ -77,8 +77,9 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setTotalBlocks(float totalBlocks) {
         this.totalBlocks = totalBlocks;
-        this.iceAmount = (int) (selectedCustomer.getAmount()*totalBlocks);
-        this.labourCharges = (int) (selectedCustomer.getLaborCharge()*totalBlocks);
+        setIceAmount((int) (selectedCustomer.getAmount()*totalBlocks));
+        setLabourCharges((int) (selectedCustomer.getLaborCharge()*totalBlocks));
+        setTotalAmount(getIceAmount()+getLabourCharges()+getOtherAmount());
     }
 
     public int getIceAmount() {
@@ -87,6 +88,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setIceAmount(int iceAmount) {
         this.iceAmount = iceAmount;
+        notifyChange();
     }
 
     public int getLabourCharges() {
@@ -95,6 +97,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setLabourCharges(int labourCharges) {
         this.labourCharges = labourCharges;
+        notifyChange();
     }
 
     public int getOtherAmount() {
@@ -103,6 +106,8 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setOtherAmount(int otherAmount) {
         this.otherAmount = otherAmount;
+        setTotalAmount(getIceAmount()+getLabourCharges()+getOtherAmount());
+        notifyChange();
     }
 
     public int getTotalAmount() {
@@ -111,6 +116,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
+        notifyChange();
     }
 
     public int getPaidAmount() {
@@ -119,6 +125,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setPaidAmount(int paidAmount) {
         this.paidAmount = paidAmount;
+        setDueAmount(getTotalAmount()-getPaidAmount());
     }
 
     public int getDueAmount() {
@@ -127,6 +134,7 @@ public class SalesViewModel extends BaseObservable implements Serializable {
 
     public void setDueAmount(int dueAmount) {
         this.dueAmount = dueAmount;
+        notifyChange();
     }
 
     public String getNote() {
