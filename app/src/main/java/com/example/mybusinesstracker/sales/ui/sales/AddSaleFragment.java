@@ -22,10 +22,13 @@ import androidx.databinding.DataBindingUtil;
 
 import com.example.mybusinesstracker.BaseCalsses.BaseFragment;
 import com.example.mybusinesstracker.R;
+import com.example.mybusinesstracker.cloud_firestore.tables.SalesTable;
 import com.example.mybusinesstracker.customer.ui.customer.Customer;
 import com.example.mybusinesstracker.databinding.SalesFragmentBinding;
 import com.example.mybusinesstracker.sales.OnSalesInteractionListener;
 import com.example.mybusinesstracker.viewmodels.SalesViewModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -34,7 +37,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class AddSaleFragment extends BaseFragment implements View.OnClickListener {
+public class AddSaleFragment extends BaseFragment implements View.OnClickListener, OnFailureListener, OnSuccessListener<Void> {
 
     private SalesViewModel mViewModel;
     private ArrayList<String> mSalesTypes = new ArrayList<>();
@@ -68,7 +71,7 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
         Spinner mSpinnerCustomerName = view.findViewById(R.id.sal_cus_ed);
         TextView mDateTextView = view.findViewById(R.id.sal_date_ed);
         mDateTextView.setOnClickListener(this);
-
+        view.findViewById(R.id.sub_btn).setOnClickListener(this);
         mSpinnerCustomerName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -150,7 +153,16 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
             case R.id.sal_date_ed:
                 showDatePicker(v);
                 break;
+            case R.id.sub_btn:
+                onSaveClicked();
+                break;
         }
+    }
+
+    private void onSaveClicked() {
+        mViewModel.setDate(Calendar.getInstance().getTimeInMillis());
+        SalesTable salesTable = new SalesTable();
+        salesTable.addDataField(mViewModel,this, this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -171,12 +183,21 @@ public class AddSaleFragment extends BaseFragment implements View.OnClickListene
 
     @SuppressLint("SimpleDateFormat")
     private void setTimeText(Calendar calender) {
-        DateFormat formatter = null;
-        formatter = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String today = formatter.format(calender.getTime());
         System.out.println("Today : " + today);
         mViewModel.setDateString(today);
         mViewModel.setDate(calender.getTimeInMillis());
+    }
+
+    @Override
+    public void onFailure(@NonNull Exception e) {
+
+    }
+
+    @Override
+    public void onSuccess(Void aVoid) {
+        mListener.onAddSaleRecordSuccess(mViewModel);
     }
 }
 

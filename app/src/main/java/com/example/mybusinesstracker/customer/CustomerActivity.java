@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mybusinesstracker.R;
-import com.example.mybusinesstracker.cloud_firestore.CustomerTable;
+import com.example.mybusinesstracker.cloud_firestore.tables.CustomerTable;
 import com.example.mybusinesstracker.cloud_firestore.DBInstance;
 import com.example.mybusinesstracker.customer.ui.customer.CreateCustomer;
 import com.example.mybusinesstracker.customer.ui.customer.Customer;

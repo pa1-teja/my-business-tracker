@@ -7,12 +7,13 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.example.mybusinesstracker.BR;
+import com.example.mybusinesstracker.cloud_firestore.OnCloudFireStoreInteraction;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Customer extends BaseObservable implements Serializable, Parcelable {
+public class Customer extends BaseObservable implements Serializable, Parcelable, OnCloudFireStoreInteraction {
     public static final String KEY_CUSTOMER_NAME = "customerName";
     public static final String KEY_ADDRESS = "address";
     public static final String KEY_PHONE_NUMBER = "phoneNumber";
@@ -138,6 +139,7 @@ public class Customer extends BaseObservable implements Serializable, Parcelable
         this.colorID = colorID;
         notifyPropertyChanged(BR.colorID);
     }
+    @Override
     public HashMap<String, String> getHashMap() {
         HashMap<String, String> data = new HashMap<>();
         data.put(KEY_CUSTOMER_NAME,customerName);
