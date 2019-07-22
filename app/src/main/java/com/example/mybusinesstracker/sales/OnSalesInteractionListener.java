@@ -10,4 +10,6 @@ public interface OnSalesInteractionListener {
     void onAddSaleRecordSuccess(SalesViewModel mViewModel);
     void onUpdateSaleRecordSuccess();
     void onDeleteSaleRecordSuccess();
+
+    HashMap<Long, SalesViewModel> getDaySales();
 }

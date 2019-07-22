@@ -106,8 +106,6 @@ public class CustomerActivity extends FactoryBaseActivity implements CustomerFra
 
     @Override
     public void goToCreateCustomer() {
-
-
         getSupportActionBar().setTitle("Create Customer");
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();

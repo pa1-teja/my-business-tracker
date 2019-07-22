@@ -10,6 +10,7 @@ import com.example.mybusinesstracker.cloud_firestore.tables.SalesTable;
 import com.example.mybusinesstracker.customer.ui.customer.Customer;
 import com.example.mybusinesstracker.factory.FactoryBaseActivity;
 import com.example.mybusinesstracker.sales.ui.sales.AddSaleFragment;
+import com.example.mybusinesstracker.sales.ui.sales.DaySalesFragment;
 import com.example.mybusinesstracker.viewmodels.SalesViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,7 +34,8 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
         getAllSalesList();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, AddSaleFragment.newInstance(), "AddSaleFragment").commitNow();
+            //getSupportFragmentManager().beginTransaction().replace(R.id.container, AddSaleFragment.newInstance("",""), "AddSaleFragment").commitNow();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, DaySalesFragment.newInstance("",""), "DaySalesFragment").commitNow();
         }
     }
 
@@ -76,6 +78,11 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
                     if (myFragment != null) {
                         myFragment.updateCustomerSpinner(mAllCustomers);
                     }
+                    DaySalesFragment fragment = (DaySalesFragment) getSupportFragmentManager().findFragmentByTag("DaySalesFragment");
+                    // add your code here
+                    if (fragment != null) {
+                        fragment.updateAdapter(mAllSales);
+                    }
                 }
             }, new OnFailureListener() {
                 @Override
@@ -109,5 +116,10 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
     @Override
     public void onDeleteSaleRecordSuccess() {
         onBackPressed();
+    }
+
+    @Override
+    public HashMap<Long, SalesViewModel> getDaySales() {
+        return mAllSales;
     }
 }
