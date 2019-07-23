@@ -34,7 +34,10 @@ public class SalesTable extends DBInstance {
                 .addOnFailureListener(error_writing_document);;
     }
 
-    public void getSalesList(OnCompleteListener<QuerySnapshot> onCompleteListener, OnFailureListener onFailure) {
-        getCollection().document(BASE_DIRECTORY_DETAILS).collection(BASE_DIRECTORY_SALES).get().addOnCompleteListener(onCompleteListener).addOnFailureListener(onFailure);
+    public void getSalesList(OnCompleteListener<QuerySnapshot> onCompleteListener, OnFailureListener onFailure, String startDate, String endDate) {
+        getCollection().document(BASE_DIRECTORY_DETAILS).collection(BASE_DIRECTORY_SALES)
+                .whereGreaterThan("date", startDate)
+                .whereLessThan("date", endDate)
+                .get().addOnCompleteListener(onCompleteListener).addOnFailureListener(onFailure);
     }
 }

@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mybusinesstracker.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DayRecycleViewAdapter extends RecyclerView.Adapter<DaySaleViewHolder> {
-    private HashMap<String, CustomerSaleModel> mSaleModelHashMap;
-    ArrayList<CustomerSaleModel> listOfCustomerSaleModel;
-    public DayRecycleViewAdapter(ArrayList<CustomerSaleModel> saleModelHashMap) {
+    private ArrayList<CustomerSaleModel> listOfCustomerSaleModel;
+    DayRecycleViewAdapter(ArrayList<CustomerSaleModel> saleModelHashMap) {
         listOfCustomerSaleModel = saleModelHashMap;
     }
 

@@ -6,17 +6,16 @@ import com.example.mybusinesstracker.viewmodels.SalesViewModel;
 import java.util.ArrayList;
 
 public class CustomerSaleModel {
-    Customer customer;
-    ArrayList<SalesViewModel> salesViewModels = new ArrayList<>();
+    public Customer customer;
+    public ArrayList<SalesViewModel> salesViewModels = new ArrayList<>();
     private CustomerSaleInfo customerSaleInfo;
-    public CustomerSaleInfo getCustomerSale() {
+    CustomerSaleInfo getCustomerSale() {
         if(null == customerSaleInfo && salesViewModels.size()>0) {
             customerSaleInfo = new CustomerSaleInfo();
             customerSaleInfo.name = customer.getCustomerName();
             StringBuilder nameBuilder = new StringBuilder();
             for (SalesViewModel salesViewModel : salesViewModels) {
                 nameBuilder.append(salesViewModel.getTotalBlocks()).append(" + ");
-                //customerSaleInfo.totalBlocksString =customerSaleInfo.totalBlocksString+" + "+salesViewModel.getTotalBlocks();
                 customerSaleInfo.totalBlock = customerSaleInfo.totalBlock+salesViewModel.getTotalBlocks();
                 customerSaleInfo.totalAmount = customerSaleInfo.totalAmount+salesViewModel.getTotalAmount();
                 customerSaleInfo.totalPaid = customerSaleInfo.totalPaid+salesViewModel.getPaidAmount();
@@ -27,7 +26,7 @@ public class CustomerSaleModel {
             customerSaleInfo.totalBlocksString = String.valueOf(nameBuilder.delete(nameBuilder.length() - 3, nameBuilder.length() - 1));
             return customerSaleInfo;
         }
-        return null;
+        return customerSaleInfo;
     }
 
     class CustomerSaleInfo {

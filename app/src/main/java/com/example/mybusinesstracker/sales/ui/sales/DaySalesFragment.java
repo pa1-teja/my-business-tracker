@@ -12,14 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mybusinesstracker.BaseCalsses.BaseFragment;
 import com.example.mybusinesstracker.R;
 import com.example.mybusinesstracker.sales.OnSalesInteractionListener;
-import com.example.mybusinesstracker.viewmodels.SalesViewModel;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 public class DaySalesFragment extends BaseFragment {
     private static final String ARG_PARAM1 = "param1";
@@ -29,10 +21,7 @@ public class DaySalesFragment extends BaseFragment {
     private String mParam2;
 
     private OnSalesInteractionListener mListener;
-    HashMap<String, CustomerSaleModel> saleModelHashMap = new HashMap<>();
-    private RecyclerView recyclerView;
     private DayRecycleViewAdapter dayRecycleViewAdapter;
-    private ArrayList<CustomerSaleModel> listOfCustomerSaleModel = new ArrayList<>();
 
     public DaySalesFragment() {
         // Required empty public constructor
@@ -60,32 +49,20 @@ public class DaySalesFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_day_sales, container, false);
-        recyclerView = view.findViewById(R.id.recycle_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        generateSalesHashMap(mListener.getDaySales());
-        dayRecycleViewAdapter = new DayRecycleViewAdapter(listOfCustomerSaleModel);
+        view.findViewById(R.id.add_new).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.gotToAddSaleFragment();
+            }
+        });
+        dayRecycleViewAdapter = new DayRecycleViewAdapter(mListener.getSalesList());
         recyclerView.setAdapter(dayRecycleViewAdapter);
         return view;
     }
 
-    private void generateSalesHashMap(HashMap<Long, SalesViewModel> hashMap) {
-        listOfCustomerSaleModel.clear();
-        Set it = hashMap.entrySet();
-        for (Object o : it) {
-            Map.Entry entry = (Map.Entry) o;
-            SalesViewModel salesViewModel = (SalesViewModel) entry.getValue();
-            if (saleModelHashMap.containsKey(salesViewModel.getCustomerID())) {
-                Objects.requireNonNull(saleModelHashMap.get(salesViewModel.getCustomerID())).salesViewModels.add(salesViewModel);
-            } else {
-                CustomerSaleModel customerSaleModel = new CustomerSaleModel();
-                customerSaleModel.salesViewModels.add(salesViewModel);
-                customerSaleModel.customer = mListener.getCustomers().get(salesViewModel.getCustomerID());
-                saleModelHashMap.put(salesViewModel.getCustomerID(), customerSaleModel);
-            }
-        }
-        Collection<CustomerSaleModel> demoValues = saleModelHashMap.values();
-        listOfCustomerSaleModel.addAll(demoValues);
-    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -104,8 +81,7 @@ public class DaySalesFragment extends BaseFragment {
         mListener = null;
     }
 
-    public void updateAdapter(HashMap<Long, SalesViewModel> mAllSales) {
-        generateSalesHashMap(mAllSales);
+    public void updateAdapter() {
         dayRecycleViewAdapter.notifyDataSetChanged();
     }
 }

@@ -20,6 +20,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mybusinesstracker.R;
 import com.example.mybusinesstracker.customer.CustomerActivity;
@@ -229,5 +231,17 @@ public class BaseActivity extends AppCompatActivity implements OnBaseAppListener
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    protected void replaceFragment(String fragment_header_name, BaseFragment baseFragment, String fragment_id) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.container, baseFragment, fragment_id);
+        fragmentTransaction.addToBackStack(fragment_id);
+        fragmentTransaction.commit();
+    }
+    @Override
+    public void setTitle(String name){
+        getSupportActionBar().setTitle(name);
     }
 }

@@ -6,12 +6,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mybusinesstracker.R;
-import com.example.mybusinesstracker.cloud_firestore.tables.CustomerTable;
 import com.example.mybusinesstracker.cloud_firestore.DBInstance;
+import com.example.mybusinesstracker.cloud_firestore.tables.CustomerTable;
 import com.example.mybusinesstracker.customer.ui.customer.CreateCustomer;
 import com.example.mybusinesstracker.customer.ui.customer.Customer;
 import com.example.mybusinesstracker.customer.ui.customer.CustomerListView;
@@ -106,21 +104,13 @@ public class CustomerActivity extends FactoryBaseActivity implements CustomerFra
 
     @Override
     public void goToCreateCustomer() {
-        getSupportActionBar().setTitle("Create Customer");
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.container, CreateCustomer.newInstance(null), "CreateCustomer");
-        fragmentTransaction.addToBackStack("CreateCustomer");
-        fragmentTransaction.commit();
+        replaceFragment("Create Customer", CreateCustomer.newInstance(null), "create_customer");
     }
+
+
 
     @Override
     public void goToUpdateCustomer(Customer customer) {
-        getSupportActionBar().setTitle("Update Customer");
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.container, CreateCustomer.newInstance(customer), "UpdateCustomer");
-        fragmentTransaction.addToBackStack("UpdateCustomer");
-        fragmentTransaction.commit();
+        replaceFragment("", CreateCustomer.newInstance(customer), "update_customer");
     }
 }
