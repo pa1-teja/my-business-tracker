@@ -32,7 +32,7 @@ public class DayRecycleViewAdapter extends RecyclerView.Adapter<DaySaleViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull DaySaleViewHolder holder, int position) {
-        CustomerSaleModel.CustomerSaleInfo temp = listOfCustomerSaleModel.get(position).getCustomerSale();
+        CustomerSaleInfo temp = listOfCustomerSaleModel.get(position).getCustomerSale();
         holder.mCustomerName.setText(String.valueOf(temp.name));
         holder.mTotalBlocksString.setText(String.valueOf(temp.totalBlocksString));
         holder.mTotalIceBlocks.setText(String.valueOf(temp.totalBlock));

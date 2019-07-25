@@ -41,11 +41,11 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
         super.onCreate(savedInstanceState);
         customerTable = new CustomerTable();
         getCustomerList();
-        getAllSalesList(Calendar.getInstance());
+        getSalesListFromCloud(Calendar.getInstance());
 
         getSupportActionBar().setTitle("Day Sales");
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.container, DaySalesFragment.newInstance("",""), "DaySalesFragment").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container, DaySalesFragment.newInstance(Utils.getStringFromDate(Calendar.getInstance(), "dd/MM/yyyy")), "DaySalesFragment").commit();
         }
     }
 
@@ -71,38 +71,43 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
         }
     }
     @Override
-    public void getAllSalesList(Calendar calendar) {
-        if(null == mAllSales || mAllSales.size() <=0) {
-            SalesTable salesTable = new SalesTable();
-            salesTable.getSalesList(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if(null != task.getResult()) {
-                        for (DocumentSnapshot document : task.getResult()) {
-                            Map<String, Object> data = document.getData();
-                            assert data != null;
-                            addSale(new SalesViewModel(data));
-                        }
-                    }
-                    AddSaleFragment myFragment = (AddSaleFragment) getSupportFragmentManager().findFragmentByTag("AddSaleFragment");
-                    // add your code here
-                    if (myFragment != null) {
-                        myFragment.updateCustomerSpinner(mAllCustomers);
-                    }
-                    generateSalesHashMap();
-                    DaySalesFragment fragment = (DaySalesFragment) getSupportFragmentManager().findFragmentByTag("DaySalesFragment");
-                    // add your code here
-                    if (fragment != null) {
-                        fragment.updateAdapter();
+    public void getSalesListFromCloud(Calendar calendar) {
+        /*if(null == mAllSales || mAllSales.size() <=0) {
+
+        }*/
+        assert mAllSales != null;
+        mAllSales.clear();
+        SalesTable salesTable = new SalesTable();
+        salesTable.getSalesList(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(null != task.getResult()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        Map<String, Object> data = document.getData();
+                        assert data != null;
+                        SalesViewModel temp = new SalesViewModel(data);
+                        addSale(temp);
                     }
                 }
-            }, new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d("Exception: ", "Exception "+e.getMessage());
+                AddSaleFragment myFragment = (AddSaleFragment) getSupportFragmentManager().findFragmentByTag("AddSaleFragment");
+                // add your code here
+                if (myFragment != null) {
+                    myFragment.updateCustomerSpinner(mAllCustomers);
                 }
-            }, String.valueOf(Utils.getStartOfDay(calendar).getTime()), String.valueOf(Utils.getEndOfDay(calendar).getTime()));
-        }
+                generateSalesHashMap();
+                DaySalesFragment fragment = (DaySalesFragment) getSupportFragmentManager().findFragmentByTag("DaySalesFragment");
+                // add your code here
+                if (fragment != null) {
+                    fragment.updateAdapter();
+                }
+            }
+        }, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("Exception: ", "Exception "+e.getMessage());
+            }
+        }, String.valueOf(Utils.getStartOfDay(calendar).getTime()), String.valueOf(Utils.getEndOfDay(calendar).getTime()));
+
     }
     protected void addCustomer(Customer customer) {
         mAllCustomers.put(customer.getCustomerName(), customer);
@@ -143,6 +148,7 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
 
     public void generateSalesHashMap() {
         listOfCustomerSaleModel.clear();
+        saleModelHashMap.clear();
         Set it = getDaySales().entrySet();
         for (Object o : it) {
             Map.Entry entry = (Map.Entry) o;
@@ -162,6 +168,7 @@ public class SalesActivity extends FactoryBaseActivity implements OnSalesInterac
 
     @Override
     public ArrayList<CustomerSaleModel> getSalesList() {
+        generateSalesHashMap();
         return listOfCustomerSaleModel;
     }
 }

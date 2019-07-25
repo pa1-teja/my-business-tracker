@@ -19,5 +19,5 @@ public interface OnSalesInteractionListener {
     void gotToAddSaleFragment();
 
     ArrayList<CustomerSaleModel> getSalesList();
-    void getAllSalesList(Calendar calendar);
+    void getSalesListFromCloud(Calendar calendar);
 }

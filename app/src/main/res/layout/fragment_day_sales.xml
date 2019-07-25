@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 layout="@layout/sales_header_date_screen"/>
             <include
+                android:id="@+id/list_header"
                 android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
